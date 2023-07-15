@@ -32,6 +32,13 @@ public class PacienteController {
         return ResponseEntity.ok(pacientes);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id){
+        var paciente = pacienteRepository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhesPaciente(paciente));
+    }
+
+
     @PutMapping
     @Transactional
     public ResponseEntity atualiza(@RequestBody @Valid DadosAtualizaPaciente dados){
