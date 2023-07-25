@@ -21,10 +21,10 @@ public class Consulta {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "paciente_id")
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "medico_id")
+    @JoinColumn(name = "medico_id")
     private Medico medico;
 
     private LocalDateTime data;

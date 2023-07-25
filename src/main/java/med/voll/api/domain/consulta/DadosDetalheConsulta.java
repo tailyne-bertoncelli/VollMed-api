@@ -5,6 +5,10 @@ import med.voll.api.domain.paciente.Paciente;
 
 import java.time.LocalDateTime;
 
-public record DadosDetalheConsulta(Paciente paciente, Medico medico, LocalDateTime data) {
+public record DadosDetalheConsulta(Long id, Long medico, Long paciente, LocalDateTime data) {
+
+    public DadosDetalheConsulta(Consulta consulta) {
+        this(consulta.getId(), consulta.getMedico().getId(), consulta.getPaciente().getId(), consulta.getData());
+    }
 
 }
