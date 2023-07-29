@@ -21,7 +21,7 @@ public class TratamentoDeErros {
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErros::new).toList());
     }
 
-    @ExceptionHandler(EntityNotFoundException.class)
+    @ExceptionHandler(RuntimeException.class)
     public ResponseEntity erroRegrasDeNegocios(RuntimeException exception){
         return ResponseEntity.badRequest().body(exception.getMessage());
     }
